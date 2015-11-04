@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/responsive.css">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/picturefill.min.js"></script>
+		<title>Build a Truck</title>
+		<script>
+			// List of all available instructions: http://www.cubiculus.com/api-rest/building-instruction/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6
+
+				// http://www.cubiculus.com/api-rest/lego-set/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6/10187
+
+				// http://www.cubiculus.com/api/usage
+
+// Create the XHR object.
+/*
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // All HTML5 Rocks properties support CORS.
+  var url = 'http://www.cubiculus.com/api-rest/building-instruction/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6';
+
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+    console.log(text);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
+
+//makeCorsRequest();
+
+function test(data) {
+	console.log(data);
+	console.log('bing');
+}
+
+
+$().ready(function () {
+  var url = 'http://www.cubiculus.com/api-rest/building-instruction/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6';
+
+  $.get(url, function (data) {
+    // can use 'data' in here...
+    console.log(data);
+  });
+});
+
+*/
+
+
+				$.ajax({url: 'http://www.cubiculus.com/api-rest/building-instruction/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6', //&CallBack=test
+					dataType:'jsonp', // 'jsonp'
+					type: 'GET',
+					jsonp: 'CallBack',
+					success: function(data) {
+						console.log(data);
+
+						//clearTimeout(wikiRequestTimeout);
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+/*
+				$.ajax({url: 'http://www.cubiculus.com/api-rest/lego-set/s1r8a1ju5j7kr8g9rnplqhp0ekn3g356f1m9dtivfmi9h1qo1qrj00nv8o4u36o6/10187',
+					dataType:'jsonp', // 'json'
+					type: 'GET',
+					jsonp: 'CallBack',
+					success: function(data) {
+						console.log(data);
+
+						//clearTimeout(wikiRequestTimeout);
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+*/
+
+
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid container">
+
+			<!-- Header -->
+			<header class="row">
+				<div class="row">
+					<div class="col-md-12">
+						<h1>Build a Truck</h1>
+					</div>
+				</div>
+			</header>
+
+			<!-- Body Content -->
+			<div class="row instructions-container">
+			</div>
+		</div>
+	</body>
+</html>
